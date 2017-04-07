@@ -1,0 +1,29 @@
+{
+  "name": "neutrino-middleware-globalvar",
+  "description": "Neutrino middleware that generates a virtual module which sets a global variable",
+  "author": "Jarid Margolin <jaridmargolin@gmail.com>",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "neutrino",
+    "neutrino-middleware",
+    "global",
+    "variable"
+  ],
+  "homepage": "https://github.com/jaridmargolin/neutrino-middleware-globalvar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaridmargolin/neutrino-middleware-globalvar"
+  },
+  "bugs": {
+    "url": "https://github.com/jaridmargolin/neutrino-middleware-globalvar/issues"
+  },
+  "main": "src/index.js",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "virtual-module-webpack-plugin": "^0.2.0"
+  },
+  "peerDependencies": {
+    "neutrino": "^5.0.1"
+  }
+}
