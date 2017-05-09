@@ -21,6 +21,7 @@
   "main": "src/index.js",
   "dependencies": {
     "lodash": "^4.17.4",
+    "md5": "^2.2.1",
     "virtual-module-webpack-plugin": "^0.2.0"
   },
   "peerDependencies": {

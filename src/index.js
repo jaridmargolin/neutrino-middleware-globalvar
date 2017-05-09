@@ -4,8 +4,12 @@
  * dependencies
  * -------------------------------------------------------------------------- */
 
+// core
+const path = require('path')
+
 // 3rd party
 const _ = require('lodash')
+const md5 = require('md5')
 const VirtualModulePlugin = require('virtual-module-webpack-plugin')
 
 /* -----------------------------------------------------------------------------
@@ -19,16 +23,22 @@ const requireOptions = function (options, ...args) {
 }
 
 module.exports = (neutrino, options) => {
-  requireOptions(options, 'filename', 'name', 'value')
+  requireOptions(options, 'name', 'value')
 
   let value = options.value
   if (_.isObject(value)) {
     value = JSON.stringify(value)
   }
 
-  neutrino.config.plugin(`globalvar-${options.filename}`)
-    .use(VirtualModulePlugin, [{
-      moduleName: options.filename,
-      contents: `/* eslint-disable */\n${options.name} = ${value}`
-    }])
+  const { config } = neutrino
+  const moduleName = `${options.name}-${md5(value)}`
+  const contents = `/* eslint-disable */\n${options.name} = ${value}`
+
+  config.plugin(`globalvar-${moduleName}`)
+    .use(VirtualModulePlugin, [{ moduleName, contents }])
+
+  if (options.addToEntry) {
+    _.castArray(options.addToEntry).forEach(entry => config.entry(entry)
+      .prepend(path.join(neutrino.options.root, moduleName)))
+  }
 }
