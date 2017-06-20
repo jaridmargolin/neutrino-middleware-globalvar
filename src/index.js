@@ -22,7 +22,7 @@ const requireOptions = function (options, ...args) {
   })
 }
 
-module.exports = (neutrino, options) => {
+module.exports = (neutrino, options = {}) => {
   requireOptions(options, 'name', 'value')
 
   let value = options.value
