@@ -1,3 +1,7 @@
+Moved to: [neutrino-contrib/neutrino-middleware-globalvar](https://github.com/jaridmargolin/neutrino-contrib/tree/master/packages/neutrino-middleware-globalvar)
+
+---
+
 # Neutrino GlobalVar Middleware
 [![NPM version][npm-image]][npm-url] [![NPM downloads][npm-downloads]][npm-url]
 
